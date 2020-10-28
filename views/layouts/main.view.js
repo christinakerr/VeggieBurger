@@ -13,7 +13,11 @@ module.exports = function (props) {
         .join("")
     }
 
-        ${ children }
+    ${burgers
+        .filter(burger => burger.devoured)
+        .map(burger => renderEatenBurger(burger))
+        .join("")
+    }
 
     <div class="row">
         <div class="col-md-12">
