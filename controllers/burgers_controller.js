@@ -1,14 +1,14 @@
 const express = require("express");
-const burger = require("../models.burger.js");
+const burger = require("../models/burger.js");
+
+const view = require("../views/layouts/main.view")
 
 const router = express.Router();
 
 router.get("/", function (req, res) {
-    db.Cat.findAll().then(function (cats) {
+    burger.Burger.findAll().then(function (burgers) {
         res.send(
-            views.layout({
-                children: views.cats({ cats })
-            })
+            view(burgers)
         );
     });
 });

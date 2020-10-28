@@ -1,19 +1,37 @@
 const {renderUneatenBurger, renderEatenBurger } = require("../burgers.views")
 
 module.exports = function (props) {
-    const { children } = props;
-    return /*html*/`    <div class="jumbotron">
+    // console.log(props);
+    // const { burger_name } = props;
+    return /*html*/`    
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="../../mockup/style.css">
+    <title>Eat the Veggie Burger!</title>
+</head>
+
+<body>
+    <div class="jumbotron">
     <h1>Eat the Veggie Burger!</h1>
 </div>
 <div class="container">
 
-    ${burgers
+    ${props
         .filter(burger => !burger.devoured)
         .map(burger => renderUneatenBurger(burger))
         .join("")
     }
 
-    ${burgers
+    ${props
         .filter(burger => burger.devoured)
         .map(burger => renderEatenBurger(burger))
         .join("")
@@ -35,6 +53,7 @@ module.exports = function (props) {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>`
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>`
 }
 

@@ -29,5 +29,5 @@ class Burger {
     }
 }
 module.exports = {
-    Burger: new Burger(connection);
+    Burger: new Burger(connection)
 }
