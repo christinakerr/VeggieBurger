@@ -9,10 +9,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Import routes and give the server access to them.
-const controllers = require("./controllers/burgers_controller");
+const controllers = require("./controllers");
 
-app.use("/", controllers);
-app.use("/api/burgers", controllers);
+app.use("/", controllers.html);
+app.use("/api/burgers", controllers.burger);
 
 app.listen(PORT, function() {
     console.log("App now listening at localhost:" + PORT);
